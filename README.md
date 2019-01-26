@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="https://avatars3.githubusercontent.com/u/2105791?v=3&s=200" />
+  <img src="screenshots/screenshot.png" />
 </div>
 
-## Example: Draggable Marker
+## Earthquakes
 
-Demonstrates how Marker component can be dragged with react-map-gl.
+A little React demo to show latest earthquakes from earthquake.usgs.gov.
 
 ```
     npm install

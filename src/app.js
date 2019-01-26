@@ -4,10 +4,8 @@ import {render} from 'react-dom';
 import {Paper, Table, TableHead, TableRow, TableCell, TableBody} from '@material-ui/core';
 import {Card, CardHeader, CardContent} from '@material-ui/core';
 
-import Moment from 'react-moment';
 import Map from './Map';
-
-import 'mapbox-gl/dist/mapbox-gl.css';
+import EarthquakeTable from './EarthquakeTable';
 
 export default class App extends Component {
   constructor(props) {
@@ -45,7 +43,7 @@ export default class App extends Component {
     });
   }
 
-  dispatchClickRowAction(id) {
+  dispatchSelEarthquakeAction(id) {
     this.setState({selectedEarthquake: id}, function() {
       this.refs.child.showSelectedMarker();
     });
@@ -75,30 +73,10 @@ export default class App extends Component {
           </CardContent>
         </Card>
 
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Place</TableCell>
-              <TableCell>Magnitude</TableCell>
-              <TableCell>Time</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-          {
-            sortedEarthquakes.map(function(earthquake, idx) {
-              return <TableRow key={earthquake.id} hover={true} selected={earthquake.id == selectedEarthquake ? true : false} onClick={self.dispatchClickRowAction.bind(self, earthquake.id)}>
-                <TableCell>{earthquake.properties.place}</TableCell>
-                <TableCell>{earthquake.properties.mag}</TableCell>
-                <TableCell><Moment format="DD/MM/YYYY HH:MM">{earthquake.properties.time}</Moment></TableCell>
-              </TableRow>
-            })
-          }
-          </TableBody>
-        </Table>
+        <EarthquakeTable earthquakes={sortedEarthquakes} selectedEarthquake={selectedEarthquake} onSelEarthquake={this.dispatchSelEarthquakeAction.bind(this)} />
       </Paper>
     );
   }
-
 }
 
 export function renderToDom(container) {

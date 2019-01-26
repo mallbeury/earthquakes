@@ -9,7 +9,7 @@ const pinStyle = {
   stroke: 'none'
 };
 
-export default class Pin extends PureComponent {
+export default class MapPin extends PureComponent {
 
   render() {
     const {size = 20} = this.props;

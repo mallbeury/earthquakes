@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack-dev-server --progress --hot --open",
-    "start-local": "webpack-dev-server --env.local --progress --hot --open"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.0",

@@ -2,8 +2,8 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import MapGL, {Marker, FlyToInterpolator} from 'react-map-gl';
-
-import Pin from './pin';
+import MapPin from './MapPin';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const TOKEN = 'pk.eyJ1IjoibWFsbGJldXJ5IiwiYSI6IjJfV1MzaE0ifQ.scrjDE31p7wBx7-GemqV3A'; // Set your mapbox token here
 
@@ -71,7 +71,7 @@ export default class Map extends Component {
               longitude={marker.geometry.coordinates[0]}
               latitude={marker.geometry.coordinates[1]}
             >
-              <Pin size={10} />
+              <MapPin size={10} />
             </Marker>
           })
         }

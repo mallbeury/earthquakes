@@ -36,13 +36,12 @@ const config = {
         loader: 'babel-loader',
         options: BABEL_CONFIG
       }]
+    },
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
     }]
-  },
-
-  // Optional: Enables reading mapbox token from environment variable
-  plugins: [
-    new webpack.EnvironmentPlugin(['MapboxAccessToken'])
-  ]
+  }
 };
 
 // Enables bundling against src in this repo rather than the installed version

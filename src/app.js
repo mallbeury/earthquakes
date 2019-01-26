@@ -7,6 +7,8 @@ import {Card, CardHeader, CardContent} from '@material-ui/core';
 import Moment from 'react-moment';
 import Map from './Map';
 
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 export default class App extends Component {
   constructor(props) {
     super(props);

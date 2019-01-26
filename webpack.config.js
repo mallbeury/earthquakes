@@ -1,5 +1,5 @@
-// NOTE: To use this example standalone (e.g. outside of repo)
-// delete the local development overrides at the bottom of this file
+var path = require('path');
+var hwp = require('html-webpack-plugin');
 
 // avoid destructuring for older Node version support
 const resolve = require('path').resolve;
@@ -18,12 +18,10 @@ const BABEL_CONFIG = {
 const config = {
   mode: 'development',
 
-  entry: {
-    app: resolve('./src/app.js')
-  },
+  entry: path.join(__dirname, '/src/index.js'),
 
   output: {
-    library: 'App'
+    filename: 'bundle.js'
   },
 
   module: {
@@ -41,7 +39,10 @@ const config = {
       test: /\.css$/,
       use: ['style-loader', 'css-loader']
     }]
-  }
+  },
+  plugins:[
+    new hwp({template:path.join(__dirname, '/src/index.html')})
+  ]
 };
 
 // Enables bundling against src in this repo rather than the installed version

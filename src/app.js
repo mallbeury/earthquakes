@@ -1,7 +1,7 @@
 /* global window */
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import {Paper, Table, TableHead, TableRow, TableCell, TableBody} from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
 import {Card, CardHeader, CardContent} from '@material-ui/core';
 
 import Map from './Map';
@@ -77,8 +77,4 @@ export default class App extends Component {
       </Paper>
     );
   }
-}
-
-export function renderToDom(container) {
-  render(<App/>, container);
 }

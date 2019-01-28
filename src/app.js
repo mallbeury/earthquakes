@@ -2,7 +2,9 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import Paper from '@material-ui/core/Paper';
-import {Card, CardHeader, CardContent} from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
 
 import Map from './Map';
 import EarthquakeTable from './EarthquakeTable';
@@ -45,7 +47,7 @@ export default class App extends Component {
 
   dispatchSelEarthquakeAction(id) {
     this.setState({selectedEarthquake: id}, function() {
-      this.refs.child.showSelectedMarker();
+      this.refs.childMap.showSelectedMarker();
     });
   }
 
@@ -68,11 +70,10 @@ export default class App extends Component {
           />
           <CardContent>
             <div id="map">
-              <Map markers={sortedEarthquakes} selectedEarthquake={selectedEarthquake} ref="child" />
+              <Map markers={sortedEarthquakes} selectedEarthquake={selectedEarthquake} ref="childMap" />
             </div>
           </CardContent>
         </Card>
-
         <EarthquakeTable earthquakes={sortedEarthquakes} selectedEarthquake={selectedEarthquake} onSelEarthquake={this.dispatchSelEarthquakeAction.bind(this)} />
       </Paper>
     );

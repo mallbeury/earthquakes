@@ -1,6 +1,5 @@
 /* global window */
 import React, {Component} from 'react';
-import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
@@ -39,5 +38,4 @@ export default class EarthquakeMap extends Component {
       </Table>      
     );
   }
-
 }

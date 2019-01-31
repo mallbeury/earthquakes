@@ -1,4 +1,3 @@
-/* global window */
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import Paper from '@material-ui/core/Paper';
@@ -52,15 +51,6 @@ export default class App extends Component {
   }
 
   render() {
-    let self = this;
-
-    let sortedEarthquakes = this.state.earthquakes;
-    sortedEarthquakes.sort(function(a, b){
-      return b.properties.time - a.properties.time;
-    });
-
-    let selectedEarthquake = this.state.selectedEarthquake;
-
     return (
       <Paper>
         <Card>
@@ -70,11 +60,11 @@ export default class App extends Component {
           />
           <CardContent>
             <div id="map">
-              <Map markers={sortedEarthquakes} selectedEarthquake={selectedEarthquake} ref="childMap" />
+              <Map markers={this.state.earthquakes} selectedEarthquake={this.state.selectedEarthquake} ref="childMap" />
             </div>
           </CardContent>
         </Card>
-        <EarthquakeTable earthquakes={sortedEarthquakes} selectedEarthquake={selectedEarthquake} onSelEarthquake={this.dispatchSelEarthquakeAction.bind(this)} />
+        <EarthquakeTable earthquakes={this.state.earthquakes} selectedEarthquake={this.state.selectedEarthquake} onSelEarthquake={this.dispatchSelEarthquakeAction.bind(this)} />
       </Paper>
     );
   }
